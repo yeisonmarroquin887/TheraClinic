@@ -15,6 +15,7 @@ const PacienteId = () => {
             Telefono: '3227222010',
             Estado: 'Activo',
             Fecha: '2024-06-27',
+            Sexo: 'Masculino',
             Cedula: 1108998785,
             Alergias: "pedro",
             ConsumoAlcohol: "mucho",
@@ -30,6 +31,7 @@ const PacienteId = () => {
             Telefono: '3227222010',
             Estado: 'Activo',
             Fecha: '2024-06-27',
+            Sexo: 'Masculino',
             Cedula: 1108998785,
             Alergias: "pedro",
             ConsumoAlcohol: "mucho",
@@ -44,6 +46,7 @@ const PacienteId = () => {
             Nombre: 'Aliss',
             Telefono: '3227222010',
             Estado: 'Activo',
+            Sexo: 'Femenino',
             Fecha: '2024-06-27',
             Cedula: 1108998785,
             Alergias: "pedro",
@@ -110,6 +113,14 @@ const PacienteId = () => {
                         <option value="Activo">Activo</option>
                         <option value="Inactivo">Inactivo</option>
                     </select>
+                </div>
+                <div  className="PacienteId__form-group">
+                    <label htmlFor="">Sexo</label>
+                <select {...register("Sexo")} defaultValue={paciente.Sexo} readOnly={!editMode} required>
+              <option value="">Selecciona el sexo</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </select>
                 </div>
                 <div className="PacienteId__form-group">
                     <label htmlFor="Fecha">Fecha:</label>

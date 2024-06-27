@@ -132,7 +132,7 @@
 	background-color: #bd2130;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1062px) {
 	.Citas .container {
 	  flex-direction: column;
 	}

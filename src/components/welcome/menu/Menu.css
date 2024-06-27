@@ -1,6 +1,7 @@
 .Menu {
 	width: 100%;
 	position: relative;
+	z-index: 100000;
 }
 
 .Menu__header {
