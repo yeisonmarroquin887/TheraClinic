@@ -1,0 +1,114 @@
+.AddPaciente {
+	padding-top: 4em;
+	background-color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+.AddPaciente__menu {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	margin-bottom: 0em;
+	padding: 1em;
+}
+.AddPaciente__menu > li {
+	display: flex;
+	gap: 1em;
+}
+
+.AddPaciente__form {
+	padding-bottom: 3em;
+	display: flex;
+	flex-direction: column;
+}
+.AddPaciente__form > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	padding: 1em;
+}
+
+.AddPaciente__form > div > div {
+	display: flex;
+	flex-direction: column;
+	gap: .7em;
+}
+.AddPaciente__form > div > div > label {
+	display: flex;
+
+}
+
+.AddPaciente__form > div > div > input {
+	border: none;
+	border: 1px solid rgb(197, 193, 193);
+	padding: .4em;
+	border-radius: .6em;
+
+}
+.AddPaciente__form > div > div > select {
+	border: none;
+	border: 1px solid rgb(197, 193, 193);
+	padding: .4em;
+	border-radius: .6em;
+}
+.AddPaciente__Register {
+	padding: .5em;
+	background-color: rgb(109, 109, 243);
+	color: white;
+	font-size: 1.1em;
+	width: 100%;
+	max-width: 20em;
+	border: none;
+	margin: auto;
+	margin-top: 1em;
+	cursor: pointer;
+	
+}
+@media (min-width: 910px) {
+	
+	.AddPaciente__menu {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+		margin-bottom: 0em;
+		padding: 1em;
+	}
+
+	.AddPaciente__menu > li {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	.AddPaciente__form > div {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		padding: 1em 3em 1em 3em;
+	}
+
+
+	.AddPaciente__form > div > div > input {
+		border: none;
+		border: 1px solid rgb(197, 193, 193);
+		padding: .4em;
+		border-radius: .6em;
+	}
+	.AddPaciente__Register {
+		padding: .5em;
+		background-color: rgb(109, 109, 243);
+		color: white;
+		font-size: 1.1em;
+		width: 100%;
+		max-width: 20em;
+		border: none;
+		margin: auto;
+		margin-top: 3em;
+		border-radius: .5em;
+	}
+}

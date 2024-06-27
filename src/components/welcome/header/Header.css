@@ -1,0 +1,75 @@
+.Header {
+	background-color: #1054D9;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: .7em .5em .7em .1em;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+.Header > div {
+	display: flex;
+	align-items: center;
+}
+
+.Header > div > figure > img {
+	max-width: 5em;
+}
+.Header > div > h1 {
+	color: white;
+	font-size: 1.5em;
+}
+
+.Cerrar-Sesion {
+	background-color: red;
+	border: none;
+	padding: .7em;
+	color: white;
+	cursor: pointer;
+	font-weight: 600;
+}
+.Cerrar-Sesion:hover {
+	background-color: aliceblue;
+	color: red;
+}
+
+@media (min-width: 700px) {
+	.Header {
+		background-color: #1054D9;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: .7em 3em .7em 2em;
+		position: fixed;
+		width: 100%;
+		z-index: 100000;
+	}
+	
+	.Header > div {
+		display: flex;
+		align-items: center;
+	}
+	
+	.Header > div > figure > img {
+		max-width: 5em;
+	}
+	.Header > div > h1 {
+		color: white;
+		font-size: 1.5em;
+	}
+	
+	.Cerrar-Sesion {
+		background-color: red;
+		border: none;
+		padding: .7em;
+		color: white;
+		cursor: pointer;
+		font-weight: 600;
+	}
+	.Cerrar-Sesion:hover {
+		background-color: aliceblue;
+		color: red;
+	}
+}

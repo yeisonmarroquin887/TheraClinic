@@ -1,0 +1,225 @@
+.Pacientes {
+	padding: 3em;
+	margin-bottom: 3em;
+}
+
+.Pacientes > h1 {
+	font-size: 1.5em;
+	border-bottom: 1px solid rgb(212, 210, 210);
+}
+
+.Paciente {
+	width: 100%;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	margin: auto;
+	margin-top: 2em;
+}
+
+.table-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgb(196, 191, 191);
+	padding-bottom: 1.5em;
+	flex-wrap: wrap;
+}
+
+.search-bar {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.search-bar label {
+	margin-right: 10px;
+}
+
+.search-bar input {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.add-button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.add-button i {
+	margin-right: 5px;
+}
+
+.add-button:hover {
+	background-color: #45a049;
+}
+
+.patient-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.patient-table th,
+.patient-table td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+.patient-table tr:hover {
+	background-color: #f1f1f1;
+}
+
+.action-button {
+	background-color: #2196F3;
+	color: white;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.action-button-delete {
+	background-color: red;
+	color: white;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.action-button:hover {
+	background-color: #0b7dda;
+}
+
+.action-button-delete:hover {
+	background-color: #da0b3f;
+}
+
+.Accion {
+	display: flex;
+	gap: 1em;
+	align-items: center;
+}
+
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 1100px) {
+	.Pacientes {
+		padding: 1.5em;
+		margin-bottom: 1.5em;
+	}
+	
+	.Paciente {
+		padding: 15px;
+		margin-top: 1em;
+	}
+	
+	.table-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.search-bar {
+		width: 100%;
+		margin-top: 0.5em;
+	}
+	
+	.search-bar input {
+		width: 100%;
+	}
+	
+	.add-button {
+		width: 100%;
+		justify-content: center;
+		margin-top: 0.5em;
+	}
+	
+	.patient-table th,
+	.patient-table td {
+		padding: 10px;
+		font-size: 14px;
+	}
+	
+	.action-button,
+	.action-button-delete {
+		padding: 5px;
+		font-size: 14px;
+	}
+	
+	.Accion {
+		flex-direction: column;
+		gap: 0.5em;
+		align-items: stretch;
+	}
+	
+	/* Hide some columns */
+	.column-id,
+	.column-cedula {
+		display: none;
+	}
+
+}
+
+@media (max-width: 600px) {
+	.Pacientes {
+		padding: 1em;
+		margin-bottom: 1em;
+	}
+	
+	.Paciente {
+		padding: 10px;
+	}
+	
+	.table-header {
+		padding-bottom: 1em;
+	}
+	
+	.search-bar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.search-bar label {
+		margin-bottom: 0.5em;
+	}
+	
+	.add-button {
+		padding: 10px;
+	}
+	
+	.patient-table th,
+	.patient-table td {
+		padding: 8px;
+		font-size: 12px;
+	}
+	
+	.action-button,
+	.action-button-delete {
+		padding: 5px;
+		font-size: 12px;
+		width: 100%;
+		max-width: 10em;
+	}
+	
+	/* Hide more columns */
+	.column-telefono,
+	.column-estado,
+	.column-fecha {
+		display: none;
+	}
+
+}

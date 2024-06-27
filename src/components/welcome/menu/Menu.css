@@ -1,0 +1,96 @@
+.Menu {
+	width: 100%;
+	position: relative;
+}
+
+.Menu__header {
+	display: flex;
+	border-bottom: 2px solid rgb(209, 207, 207);
+	padding: 1em;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 2em;
+}
+
+.Menu__header > div {
+	display: flex;
+	align-items: center;
+	gap: .7em;
+}
+
+.Menu__header > div > figure {
+	font-size: 2.2em;
+	background-color: rgb(203, 203, 209);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: .1em;
+}
+.Menu__header > div > div > h1 {
+	font-size: 1.2em;
+	font-weight: 500;
+	color: rgb(132, 132, 133);
+}
+
+.Menu__header > div > div > h3 {
+	font-size: .8em;
+	font-weight: 400;
+}
+
+.Menu__header > i {
+	color: rgb(147, 147, 148);
+	font-size: .9em;
+	cursor: pointer;
+}
+
+.Menu__buttons {
+	display: flex;
+	flex-direction: column;
+	margin-top: .8em;
+	gap: .1em;
+}
+
+.Menu__buttons > button {
+	border: none;
+	padding: 1em 2em 1em 2em;
+	font-size: .9em;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: transparent;
+}
+.Menu__buttons > button > i {
+	color: rgb(147, 147, 148);
+	font-size: .6em;
+	cursor: pointer;
+}
+
+.Menu__exit {
+	padding: .4em;
+	display: flex;
+	justify-content: end;
+	position: absolute;
+	width: 100%;
+}
+
+.Menu__exit > i {
+	padding: .5em;
+	background-color: rgb(64, 88, 219);
+	color: white;
+	border-radius: 1em;
+	cursor: pointer;
+}
+
+@media (min-width: 809px) {
+	.Menu__exit {
+		padding: .4em;
+		display: flex;
+		justify-content: end;
+		position: absolute;
+		width: 100%;
+		display: none;
+	}
+	
+}

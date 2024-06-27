@@ -1,0 +1,131 @@
+.Login {
+	background-color: var(--blue);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+	height: 100vh;
+	gap: 4em;
+	position: relative;
+	padding-top: 4em;
+}
+
+.error {
+	position: absolute;
+	backdrop-filter: blur(2px);
+	width: 100%;
+	height: 100vh;
+	top: 25%;
+	display: flex;
+	align-items: start;
+	justify-content: center;
+}
+
+.error__oculto {
+	position: absolute;
+	backdrop-filter: blur(2px);
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	display: flex;
+	align-items: start;
+	justify-content: center;
+	padding-top: 2em;
+	display: none;
+}
+
+.Login__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: rgba(18, 18, 121, 0.726);
+	margin-top: 1em;
+}
+.Login__header > h2 {
+	color: green;
+	font-size: .9em;
+}
+
+.Login__form {
+	background-color: aliceblue;
+	width: 100%;
+	max-width: 38em;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+                        0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
+
+.Login__datos {
+	padding: 3.6em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.Login__datos > div {
+	display: flex;
+	gap: .5em;
+}
+.Login__datos > div > label {
+	font-size: 1.1em;
+	color: green;
+	font-weight: 600;
+}
+
+.Login__datos > div > input {
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+
+.Login__datos > div > input:focus {
+	outline: none;
+}
+
+.Login__datos > h3 {
+	width: 100%;
+    text-align: end;
+	font-size: .8em;
+	color: blue;
+	cursor: pointer;
+}
+
+.Login__datos > button {
+	width: 100%;
+	font-size: 1em;
+	max-width: 10em;
+	border: none;
+	padding: .4em;
+	background-color: rgba(18, 18, 121, 0.726);
+	color: white;
+	border-radius: .3em;
+	cursor: pointer;
+}
+
+@media (min-width: 700px) {
+	.Login {
+		background-color: var(--blue);
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: start;
+		padding: 1em;
+		height: 100vh;
+		gap: 2em;
+		position: relative;
+	}
+	.error {
+		position: absolute;
+		backdrop-filter: blur(2px);
+		width: 100%;
+		height: 100vh;
+		top: 0;
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		padding-top: 2em;
+	}
+}

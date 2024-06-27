@@ -1,0 +1,145 @@
+/* src/components/Citas.css */
+
+.Citas {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+  }
+  
+  .Citas h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #333;
+  }
+  
+  .Citas .container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: space-between;
+  }
+  
+  .Citas .calendar-container {
+	flex: 1;
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Citas .calendar-container h2 {
+	font-size: 1.5rem;
+	margin-bottom: 15px;
+	color: #555;
+  }
+  
+  .Citas .new-event-container {
+	flex: 1;
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Citas .new-event-container h2 {
+	font-size: 1.5rem;
+	margin-bottom: 15px;
+	color: #555;
+  }
+  
+  .Citas form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+  }
+  
+  .Citas .form-group {
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .Citas .form-group label {
+	font-weight: bold;
+	margin-bottom: 5px;
+	color: #333;
+  }
+  
+  .Citas .form-group input[type="text"],
+  .Citas .form-group input[type="date"] {
+	padding: 10px;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+  }
+  
+  .Citas .form-group button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	font-size: 1rem;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .Citas .form-group button:hover {
+	background-color: #0056b3;
+  }
+  
+  .Citas .event-list {
+	margin-top: 30px;
+  }
+  
+  .Citas .event-item {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 15px;
+	margin-bottom: 15px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .Citas .event-item .event-details {
+	flex: 1;
+  }
+  
+  .Citas .event-item .event-details strong {
+	color: #333;
+  }
+  
+  .Citas .event-item .event-actions {
+	display: flex;
+	gap: 10px;
+  }
+  
+  .Citas .event-item .event-actions button {
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	padding: 8px 12px;
+	font-size: 0.9rem;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .Citas .event-item .event-actions button:hover {
+	background-color: #bd2130;
+  }
+  
+  @media (max-width: 768px) {
+	.Citas .container {
+	  flex-direction: column;
+	}
+  
+	.Citas .calendar-container,
+	.Citas .new-event-container {
+	  width: 100%;
+	}
+  }
+  

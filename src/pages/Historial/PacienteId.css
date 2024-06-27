@@ -1,0 +1,99 @@
+
+
+.PacienteId__Header{
+	position: fixed;
+	top: 0;
+}
+.Volver {
+	position: fixed;
+	width: 100%;
+	max-width: 10em;
+	top: 0;
+	margin-top: 6em;
+	border: none;
+	padding: .7em;
+	background-color: #1054D9 ;
+	color: white;
+	font-size: 1em;
+	cursor: pointer;
+}
+.PacienteId_Info {
+    padding: 2em;
+    background-color: white;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 10px; /* Bordes redondeados */
+	margin-top: 9em;
+}
+
+.PacienteId > h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.PacienteId__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.PacienteId__form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.PacienteId__form-group > label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    font-size: 1.1em; /* Tamaño de fuente más grande para las etiquetas */
+}
+
+.PacienteId__form-group input,
+.PacienteId__form-group textarea,
+.PacienteId__form-group select {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Incluir el padding en el ancho total */
+    font-size: 1em; /* Tamaño de fuente base */
+}
+
+.PacienteId__form-group textarea {
+    resize: vertical; /* Permitir redimensionar verticalmente los textareas */
+}
+
+.PacienteId__buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.btn-edit,
+.btn-save {
+    padding: 1em 2em; /* Espaciado de los botones */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Tamaño de fuente base */
+}
+
+.btn-edit:hover,
+.btn-save:hover {
+    background-color: #45a049; /* Cambio de color al pasar el mouse */
+}
+
+/* Estilo para campos de solo lectura */
+.PacienteId__form-group input[readonly],
+.PacienteId__form-group textarea[readonly],
+.PacienteId__form-group select[readonly] {
+    background-color: #f2f2f2; /* Fondo gris claro para campos de solo lectura */
+    cursor: not-allowed; /* Cambio de cursor a no permitido */
+}
+
