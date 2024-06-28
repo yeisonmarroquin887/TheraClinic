@@ -7,7 +7,7 @@
 	font-family: Arial, sans-serif;
   }
   
-  .Citas h1 {
+  .Citas > h1 {
 	text-align: center;
 	margin-bottom: 20px;
 	color: #333;
@@ -66,14 +66,16 @@
   }
   
   .Citas .form-group input[type="text"],
-  .Citas .form-group input[type="date"] {
-	padding: 10px;
+  .Citas .form-group input[type="date"], 
+	.Citas .form-group input[type="time"], 
+		.Citas .form-group input[type="tel"] {
+	padding: 7px;
 	font-size: 1rem;
 	border: 1px solid #ccc;
 	border-radius: 4px;
   }
   
-  .Citas .form-group button {
+  .AddCite {
 	background-color: #007bff;
 	color: white;
 	border: none;
@@ -84,7 +86,7 @@
 	transition: background-color 0.3s ease;
   }
   
-  .Citas .form-group button:hover {
+  .AddCite :hover {
 	background-color: #0056b3;
   }
   
@@ -130,6 +132,52 @@
   
   .Citas .event-item .event-actions button:hover {
 	background-color: #bd2130;
+  }
+  
+  /* Citas.css */
+
+.List {
+	list-style-type: none;
+	padding: 0;
+  }
+  
+  .ListItem {
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ListItemContent {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .ListItemTitle {
+	font-weight: bold;
+	font-size: 18px;
+  }
+  
+  .ListItemDetails {
+	font-size: 14px;
+	color: #666666;
+  }
+  
+  .ActionButton {
+	background-color: #007bff;
+	color: #ffffff;
+	border: none;
+	padding: 8px 12px;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius: 4px;
+  }
+  
+  .ActionButton:hover {
+	background-color: #0056b3;
   }
   
   @media (max-width: 1062px) {
