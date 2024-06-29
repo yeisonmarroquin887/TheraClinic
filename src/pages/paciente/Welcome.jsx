@@ -10,6 +10,7 @@ import Citas from '../../components/welcome/citas/Citas'
 const Welcome = () => {
   const navigate = useNavigate()
   const cerrar = () => {
+    localStorage.removeItem("authToken")
     navigate("/")
   }
   const [Num, setNum] = useState(null)

@@ -1,45 +1,49 @@
 import React, { useState } from 'react'
 import './Addpaciente.css'
 import { useForm } from 'react-hook-form'
+import useAplication from '../../../Hooks/useAplication'
 
 const AddPaciente = () => {
   const { handleSubmit, register, reset } = useForm()
   const [alergias, setAlergias] = useState(false)
-  const [alcohol, setAlcohol] = useState(false)
-  const [equilibrio, setEquilibrio] = useState(false)
-  const [dolorCabeza, setDolorCabeza] = useState(false)
-  const [enfermedades, setEnfermedades] = useState(false)
+
+  const {CreatePaciente} = useAplication()
 
   const submit = (data) => {
-    console.log(data)
+    data.Alcoholismo = data.Alcoholismo ? "Si" : "No"
+    data.ProblemasEquilibrio = data.ProblemasEquilibrio ? "Si" : "No"
+    data.DolorCabeza = data.DolorCabeza ? "Si" : "No"
+
+    if (!alergias) {
+      data.Alergias = "No"
+    }
+   CreatePaciente(data, reset)
   }
 
   return (
     <div className='AddPaciente'>
       <h1>Nuevo Paciente</h1>
+
+
+      <form onSubmit={handleSubmit(submit)} className='AddPaciente__form'>
       <ul className='AddPaciente__menu'>
         <li>
           <input type="checkbox" onChange={(e) => setAlergias(e.target.checked)} />
           <label htmlFor="">Alergias</label>
         </li>
         <li>
-          <input type="checkbox" onChange={(e) => setAlcohol(e.target.checked)} />
+          <input {...register("Alcoholismo")} type="checkbox" />
           <label htmlFor="">Consumo de alcohol</label>
         </li>
         <li>
-          <input type="checkbox" onChange={(e) => setEquilibrio(e.target.checked)} />
+          <input {...register("ProblemasEquilibrio")} type="checkbox"  />
           <label htmlFor="">Problemas de equilibrio</label>
         </li>
         <li>
-          <input type="checkbox" onChange={(e) => setDolorCabeza(e.target.checked)} />
+          <input {...register("DolorCabeza")} type="checkbox" />
           <label htmlFor="">Dolor de cabeza</label>
         </li>
-        <li>
-          <input type="checkbox" onChange={(e) => setEnfermedades(e.target.checked)} />
-          <label htmlFor="">Enfermedades</label>
-        </li>
       </ul>
-      <form onSubmit={handleSubmit(submit)} className='AddPaciente__form'>
         <div>
           <div>
             <label htmlFor="">Nombres</label>
@@ -48,6 +52,10 @@ const AddPaciente = () => {
           <div>
             <label htmlFor="">Apellidos</label>
             <input {...register("Apellidos")} type="text" required />
+          </div>
+          <div>
+            <label htmlFor="">Telefono</label>
+            <input {...register("Telefono")} type="number" required />
           </div>
           <div>
             <label htmlFor="">Edad</label>
@@ -71,7 +79,7 @@ const AddPaciente = () => {
           </div>
           <div>
             <label htmlFor="">Cedula</label>
-            <input {...register("Cedula")} type="number" required />
+            <input {...register("Identificacion")} type="number" required />
           </div>
           <div>
             <label htmlFor="">Estado</label>
@@ -88,31 +96,7 @@ const AddPaciente = () => {
           {alergias && (
             <div>
               <label htmlFor="">Tipo de alergia</label>
-              <input {...register("TipoAlergia")} type="text" />
-            </div>
-          )}
-          {alcohol && (
-            <div>
-              <label htmlFor="">Consumo de alcohol</label>
-              <input {...register("ConsumoAlcohol")} type="text" />
-            </div>
-          )}
-          {equilibrio && (
-            <div>
-              <label htmlFor="">Problemas de equilibrio</label>
-              <input {...register("ProblemasEquilibrio")} type="text" />
-            </div>
-          )}
-          {dolorCabeza && (
-            <div>
-              <label htmlFor="">Dolor de cabeza</label>
-              <input {...register("DolorCabeza")} type="text" />
-            </div>
-          )}
-          {enfermedades && (
-            <div>
-              <label htmlFor="">Enfermedades</label>
-              <input {...register("Enfermedades")} type="text" />
+              <input {...register("Alergias")} type="text" />
             </div>
           )}
         </div>

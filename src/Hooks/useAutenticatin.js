@@ -1,27 +1,26 @@
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const Api = import.meta.env.VITE_REACT_APP_URL;
 
 const useAutentication = () => {
-	const Api = "https://localhost:8080/api/v1/software"
 	const navigate = useNavigate()
-
-	const Autentication = (data, setErrorDatos, reset) => {
-	/*	axios.post(Api, data)
+	const Autentication = (datos, setErrorDatos, reset) => {
+		axios.post(`${Api}/terapeutas/login`, datos)
 		.then(res => {
-			console.log(pasate)
+			localStorage.setItem("authToken", res.data.token)
+			console.log(res.data)
+			if(localStorage.getItem("authToken")){
+				navigate("/welcome")
+			}else {
+				navigate("/")
+			}
 		})
 		.catch(err => {
 			setErrorDatos(false)
 			reset()
-		})*/
-
-		if(data.Contraseña == 123){
-			navigate("welcome")
-			reset()
-		}else {
-			setErrorDatos(false)
-			reset()
-		}
+			console.log(err)
+		})
 	}
 
 	return {Autentication}

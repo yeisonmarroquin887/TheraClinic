@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Paciente.css';
 import { useNavigate } from 'react-router-dom';
+import useAplication from '../../../Hooks/useAplication';
 
 const Paciente = ({option}) => {
-  const users = [
-    { id: 1, Nombre: 'Andres', Telefono: '3227222010', Estado: 'Activo', Fecha: '01/02/2024', Cedula: 1108998785 },
-    { id: 2, Nombre: 'Andres', Telefono: '3227222010', Estado: 'Activo', Fecha: '01/02/2024', Cedula: 1108998785 },
-    { id: 3, Nombre: 'Andres', Telefono: '3227222010', Estado: 'Activo', Fecha: '01/02/2024', Cedula: 1108998785 }
 
-  ];
+  const {GetPacientes, Pacientes} = useAplication()
+  useEffect(() => {
+    GetPacientes()
+  }, [])
+  console.log(Pacientes)
+
+  const users = Pacientes
 
   const navigate = useNavigate();
   const Historial = (id) => {
@@ -43,14 +46,14 @@ const Paciente = ({option}) => {
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
+          {users?.map(user => (
             <tr key={user.id}>
               <td className="column-id">{user.id}</td>
-              <td>{user.Nombre}</td>
+              <td>{user.Nombres}</td>
               <td className="column-cedula">{user.Cedula}</td>
               <td className="column-telefono">{user.Telefono}</td>
               <td className="column-estado">{user.Estado}</td>
-              <td className="column-fecha">{user.Fecha}</td>
+              <td className="column-fecha">{user.FechaIngreso}</td>
               <td className='Accion'>
                 <button onClick={() => Historial(user?.id)} className="action-button"><i className='bx bxs-edit-alt'></i></button>
                 <button className="action-button-delete"><i className='bx bx-trash'></i></button>

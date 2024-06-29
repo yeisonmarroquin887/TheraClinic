@@ -11,7 +11,9 @@ const Login = () => {
 
 	const {handleSubmit, register, reset} = useForm()
 	const submit = (data) => {
-		Autentication(data, setErrorDatos, reset)
+		 data.Identificacion = parseInt(data.Identificacion)
+		 const datos = data
+		Autentication(datos, setErrorDatos, reset)
 	}
 
   return (
@@ -30,7 +32,7 @@ const Login = () => {
 			<div className='Login__datos'>
 				<div>
 					<label htmlFor="">Identificacion:</label>
-					<input {...register("Identificación")} type="number" required/>
+					<input {...register("Identificacion")} type="number" required/>
 				</div>
 				<div>
 					<label htmlFor="">Contraseña:</label>
