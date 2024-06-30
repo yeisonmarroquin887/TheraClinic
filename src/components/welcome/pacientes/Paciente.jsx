@@ -1,69 +1,96 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Paciente.css';
 import { useNavigate } from 'react-router-dom';
 import useAplication from '../../../Hooks/useAplication';
 
-const Paciente = ({option}) => {
+const Paciente = ({ option }) => {
+  const { GetPacientes, Pacientes } = useAplication();
+  const [filteredPacientes, setFilteredPacientes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false); // Estado para controlar la carga
 
-  const {GetPacientes, Pacientes} = useAplication()
   useEffect(() => {
-    GetPacientes()
-  }, [])
-  console.log(Pacientes)
+    GetPacientes();
+  }, []);
 
-  const users = Pacientes
+  useEffect(() => {
+    setFilteredPacientes(Pacientes);
+  }, [Pacientes]);
 
   const navigate = useNavigate();
-  const Historial = (id) => {
-    navigate(`/historia/${id}`)
-  }
 
+  const Historial = (id) => {
+    navigate(`/historia/${id}`);
+  };
+
+  const Filter = (n) => {
+    if (n === "") {
+      setFilteredPacientes(Pacientes); // Mostrar todos los pacientes si el input está vacío
+    } else {
+      setIsLoading(true); // Activar el estado de carga
+      setTimeout(() => { // Simular un retraso de búsqueda
+        const filtered = Pacientes.filter(user => user.Identificacion === parseInt(n));
+        setFilteredPacientes(filtered);
+        setIsLoading(false); // Desactivar el estado de carga
+      }, 500); // Aquí puedes ajustar el tiempo de retraso según sea necesario
+    }
+  };
 
   return (
     <div className='Pacientes'>
-    <h1>Pacientes</h1>
-    <section className='Paciente'>
-      <header className="table-header">
-        <div className="search-bar">
-          <label htmlFor="buscar">Buscar</label>
-          <input type="number" id="buscar" placeholder="Buscar por cédula..." />
-        </div>
-        <button onClick={() => option(1)} className="add-button">
-          <i className='bx bx-plus'></i>
-          <span>Nuevo</span>
-        </button>
-      </header>
-      <table className="patient-table">
-        <thead>
-          <tr>
-            <th className="column-id">Id</th>
-            <th>Nombre</th>
-            <th className="column-cedula">Cédula</th>
-            <th className="column-telefono">Teléfono</th>
-            <th className="column-estado">Estado</th>
-            <th className="column-fecha">Fecha</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users?.map(user => (
-            <tr key={user.id}>
-              <td className="column-id">{user.id}</td>
-              <td>{user.Nombres}</td>
-              <td className="column-cedula">{user.Cedula}</td>
-              <td className="column-telefono">{user.Telefono}</td>
-              <td className="column-estado">{user.Estado}</td>
-              <td className="column-fecha">{user.FechaIngreso}</td>
-              <td className='Accion'>
-                <button onClick={() => Historial(user?.id)} className="action-button"><i className='bx bxs-edit-alt'></i></button>
-                <button className="action-button-delete"><i className='bx bx-trash'></i></button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
-  </div>
+      <h1>Pacientes</h1>
+      <section className='Paciente'>
+        <header className="table-header">
+          <div className="search-bar">
+            <label htmlFor="buscar">Buscar</label>
+            <input 
+              type="number" 
+              id="buscar" 
+              placeholder="Buscar por cédula..." 
+              onChange={(e) => Filter(e.target.value)} 
+            />
+          </div>
+          <button onClick={() => option(1)} className="add-button">
+            <i className='bx bx-plus'></i>
+            <span>Nuevo</span>
+          </button>
+        </header>
+        {isLoading ? (
+          <div className="loading">Cargando...</div> // Indicador de carga
+        ) : filteredPacientes && filteredPacientes.length === 0 ? (
+          <div className="no-results">El usuario no existe</div> // Mensaje de no resultados
+        ) : (
+          <table className="patient-table">
+            <thead>
+              <tr>
+                <th className="column-id">Id</th>
+                <th>Nombre</th>
+                <th className="column-cedula">Cédula</th>
+                <th className="column-telefono">Teléfono</th>
+                <th className="column-estado">Estado</th>
+                <th className="column-fecha">Fecha</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredPacientes?.map(user => (
+                <tr key={user.id}>
+                  <td className="column-id">{user.id}</td>
+                  <td>{user.Nombres}</td>
+                  <td className="column-cedula">{user.Identificacion}</td>
+                  <td className="column-telefono">{user.Telefono}</td>
+                  <td className="column-estado">{user.Estado}</td>
+                  <td className="column-fecha">{user.FechaIngreso}</td>
+                  <td className='Accion'>
+                    <button onClick={() => Historial(user?.id)} className="action-button"><i className='bx bxs-edit-alt'></i></button>
+                    <button className="action-button-delete"><i className='bx bx-trash'></i></button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+    </div>
   );
 };
 

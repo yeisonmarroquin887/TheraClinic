@@ -113,7 +113,13 @@
 	align-items: center;
 }
 
-
+.no-results {
+	text-align: center;
+	font-size: 20px;
+	margin-top: 20px;
+	color: red; /* Puedes ajustar el color según sea necesario */
+  }
+  
 
 /* Media Queries for Responsive Design */
 
@@ -171,7 +177,13 @@
 	.column-cedula {
 		display: none;
 	}
-
+	.no-results {
+		text-align: center;
+		font-size: 20px;
+		margin-top: 20px;
+		color: red; /* Puedes ajustar el color según sea necesario */
+	  }
+	  
 }
 
 @media (max-width: 600px) {
@@ -221,5 +233,11 @@
 	.column-fecha {
 		display: none;
 	}
-
+	.no-results {
+		text-align: center;
+		font-size: 20px;
+		margin-top: 20px;
+		color: red; /* Puedes ajustar el color según sea necesario */
+	  }
+	  
 }

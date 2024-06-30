@@ -1,9 +1,11 @@
-
-
-.PacienteId__Header{
-	position: fixed;
-	top: 0;
+.PacienteId__Info {
+    width: 100%;
+    padding-top: 9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .Volver {
 	position: fixed;
 	width: 100%;
@@ -17,83 +19,720 @@
 	font-size: 1em;
 	cursor: pointer;
 }
-.PacienteId_Info {
-    padding: 2em;
-    background-color: white;
-    width: 100%;
-    max-width: 800px; /* Ancho máximo del formulario */
-    margin: 0 auto; /* Centrar el formulario */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    border-radius: 10px; /* Bordes redondeados */
-	margin-top: 9em;
-}
-
-.PacienteId > h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-}
 
 .PacienteId__form {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    width: 100%;
+    max-width: 61em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 3em;
+    margin-bottom: 3em;
+}
+
+.PacienteId__Title {
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+.PacienteId__form-info {
+    width: 100%;
+    max-width: 60em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    margin-bottom: 3em;
 }
 
 .PacienteId__form-group {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    gap: .5em;
 }
 
-.PacienteId__form-group > label {
-    font-weight: bold;
-    margin-bottom: 0.5em;
-    font-size: 1.1em; /* Tamaño de fuente más grande para las etiquetas */
+.PacienteId__form-group > input {
+    padding: .5em;
+    border: none;
+    border-radius: .5em;
+    border: 1px solid rgb(175, 173, 173);
 }
 
-.PacienteId__form-group input,
-.PacienteId__form-group textarea,
-.PacienteId__form-group select {
-    border: 1px solid #ccc;
-    padding: 0.5em;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box; /* Incluir el padding en el ancho total */
-    font-size: 1em; /* Tamaño de fuente base */
+.PacienteId__form-group > select {
+    padding: .5em;
+    border: none;
+    border-radius: .5em;
+    border: 1px solid rgb(175, 173, 173);
 }
 
-.PacienteId__form-group textarea {
-    resize: vertical; /* Permitir redimensionar verticalmente los textareas */
-}
-
-.PacienteId__buttons {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
+.PacienteId__Info-2 {
     margin-top: 2em;
 }
 
-.btn-edit,
-.btn-save {
-    padding: 1em 2em; /* Espaciado de los botones */
-    background-color: #4CAF50;
-    color: white;
+.PacienteId__Info-2 > div{
+    padding: 1em 0em 0em 0em;
+}
+
+.PacienteId__Info-2 > div > label {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.PacienteId__Info-2 > div  > ul {
+    padding: 1em 0em 1em 0em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 1em;
+    max-width: 23em;
+}
+
+.PacienteId__Info-2 > div  > ul > li {
+    display: flex;
+}
+
+.PacienteId__Malestares {
+    padding: 1em 0em 0em 0em;
+}
+
+.PacienteId__Malestares > div {
+    margin-top: .6em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5em;
+}
+
+.PacienteId__Malestares > div ul {
+    display: flex;
+    flex-direction: column;
+    gap: .7em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.055);
+    padding: 1em;
+}
+
+.PacienteId__Malestares > div ul  > h4 {
+    font-weight: 500;
+}
+
+.PacienteId__Malestares > div ul  > li > span {
+    font-weight: 600;
+}
+
+.PacienteId__Malestares > div ul  > div {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1em;
+}
+
+.PacienteId__Malestares > div ul  > div > button {
+    background-color: #1054D9;
     border: none;
-    border-radius: 5px;
+    padding: .3em;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1em; /* Tamaño de fuente base */
+    width: 100%;
+    max-width: 6em;
 }
 
-.btn-edit:hover,
-.btn-save:hover {
-    background-color: #45a049; /* Cambio de color al pasar el mouse */
+.PacienteId__Medicamentos {
+    width: 100%;
+    margin-top: 2em;
 }
 
-/* Estilo para campos de solo lectura */
-.PacienteId__form-group input[readonly],
-.PacienteId__form-group textarea[readonly],
-.PacienteId__form-group select[readonly] {
-    background-color: #f2f2f2; /* Fondo gris claro para campos de solo lectura */
-    cursor: not-allowed; /* Cambio de cursor a no permitido */
+.PacienteId__Medicamentos > div {
+    margin-top: .8em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
+.PacienteId__Medicamentos > div > ul {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.055);
+    padding: 1em;
+}
+
+.PacienteId__Medicamentos > div > ul > li > span {
+    font-weight: 550;
+}
+
+.PacienteId__Medicamentos > div ul  > div {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1em;
+}
+
+.PacienteId__Medicamentos > div ul  > div > button {
+    background-color: #1054D9;
+    border: none;
+    padding: .3em;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 6em;
+}
+
+.Paciente__citas {
+    width: 100%;
+    margin-top: 2em;
+}
+
+.Paciente__citas > div {
+    margin-top: .8em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.Paciente__citas > div > ul {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.055);
+    padding: 1em;
+}
+
+.Paciente__citas > div > ul > li > span {
+    font-weight: 550;
+}
+
+.Paciente__citas > div ul  > div {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 1em;
+}
+
+.Paciente__citas > div ul  > div > button {
+    background-color: #1054D9;
+    border: none;
+    padding: .3em;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 6em;
+}
+
+
+
+.PacienteId__buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.PacienteId__buttons > button {
+    width: 100%;
+    max-width: 15em;
+    padding: .6em;
+    border: none;
+    background-color: #1054D9;
+    color: white;
+    font-size: 1em;
+    margin-top: 0em;
+    margin-bottom: 3em;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+.Add {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: .5em;
+    margin-bottom: 3em;
+}
+
+.Add > button {
+    padding: .5em;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: .3em;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.PacienteId__addEnfermedad {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.Form-add {
+   position: fixed;
+   z-index: 100000;
+   top: 0;
+   backdrop-filter: blur(2px);
+   background-color: #0057b333;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   margin-top: 4.8em;
+   display: flex;
+   justify-content: center;
+  }
+  
+  .Form-add > div {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+width: 100%;
+max-width: 25em;
+height: 15em;
+padding: 1em;
+display: flex;
+flex-direction: column;
+margin-top: 2em;
+  }
+
+  .Form-add > div > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .Form-add > div > h1 {
+    font-size: 1.5em;
+    color: #343a40;
+  }
+  
+  .Form-add i.bx {
+    font-size: 2em;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #dc3545;
+  }
+  
+  .Form-add form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Form-add form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .Form-add form label {
+    font-size: 1em;
+    color: #495057;
+    margin-bottom: 5px;
+  }
+  
+  .Form-add form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #495057;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .Form-add form input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+  
+  .Form-add form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .Form-add form button:hover {
+    background: #0056b3;
+  }
+  
+
+.Form-add > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Form-closhe {
+    display: none;
+}
+
+.PacienteId__addEnfermedad > button {
+    padding: .3em;
+    border: none;
+    background-color: #1054D9;
+    color: white;
+    border-radius: .3em;
+    cursor: pointer;
+}
+
+.PacienteId__addAlergia {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.PacienteId__addAlergia > button {
+    padding: .3em;
+    border: none;
+    background-color: #1054D9;
+    color: white;
+    border-radius: .3em;
+    cursor: pointer;
+}
+
+.Form-add-Alergia {
+   position: fixed;
+   z-index: 100000;
+   top: 0;
+   backdrop-filter: blur(2px);
+   background-color: #0057b333;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   margin-top: 4.8em;
+   display: flex;
+   justify-content: center;
+  }
+
+  .Form-closhe-Alergia {
+    display: none;
+  }
+  
+  .Form-add-Alergia > div {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+width: 100%;
+max-width: 25em;
+height: 15em;
+padding: 1em;
+display: flex;
+flex-direction: column;
+margin-top: 2em;
+  }
+
+  .Form-add-Alergia > div > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .Form-add-Alergia > div > h1 {
+    font-size: 1.5em;
+    color: #343a40;
+  }
+  
+  .Form-add-Alergia i.bx {
+    font-size: 2em;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #dc3545;
+  }
+  
+  .Form-add-Alergia form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+  }
+  
+  .Form-add-Alergia form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .Form-add-Alergia form label {
+    font-size: 1em;
+    color: #495057;
+    margin-bottom: 5px;
+  }
+  
+  .Form-add-Alergia form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #495057;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .Form-add-Alergia form input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+  
+  .Form-add-Alergia form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .Form-add-Alergia form button:hover {
+    background: #0056b3;
+  }
+
+
+
+
+  .PacienteId__addMalestar > div {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.PacienteId__addMalestar > div > button {
+    padding: .3em;
+    border: none;
+    background-color: #1054D9;
+    color: white;
+    border-radius: .3em;
+    cursor: pointer;
+    width: 100%;
+    max-width: 10em;
+}
+
+.Form-add-Malestar {
+   position: fixed;
+   z-index: 100000;
+   top: 0;
+   backdrop-filter: blur(2px);
+   background-color: #0057b333;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   margin-top: 4.8em;
+   display: flex;
+   justify-content: center;
+  }
+
+  .Form-closhe-Malestar {
+    display: none;
+  }
+  
+  .Form-add-Malestar > div {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+width: 100%;
+max-width: 25em;
+height: 25em;
+padding: 1em;
+display: flex;
+flex-direction: column;
+margin-top: 2em;
+  }
+
+  .Form-add-Malestar > div > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .Form-add-Malestar > div > h1 {
+    font-size: 1.5em;
+    color: #343a40;
+  }
+  
+  .Form-add-Malestar i.bx {
+    font-size: 2em;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #dc3545;
+  }
+  
+  .Form-add-Malestar form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+  }
+  
+  .Form-add-Malestar form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .Form-add-Malestar form label {
+    font-size: 1em;
+    color: #495057;
+    margin-bottom: 5px;
+  }
+  
+  .Form-add-Malestar form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #495057;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .Form-add-Malestar form input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #495057;
+    transition: border-color 0.3s ease-in-out;
+  }
+
+  .Form-add-Malestar form input[type="date"]:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+
+  .Form-add-Malestar form input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+  
+  .Form-add-Malestar form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .Form-add-Malestar form button:hover {
+    background: #0056b3;
+  }
+
+
+
+  .PacienteId__addMedicamento > div {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.PacienteId__addMedicamentor > div > button {
+    padding: .3em;
+    border: none;
+    background-color: #1054D9;
+    color: white;
+    border-radius: .3em;
+    cursor: pointer;
+    width: 100%;
+    max-width: 10em;
+}
+
+.Form-add-Medicamento {
+   position: fixed;
+   z-index: 100000;
+   top: 0;
+   backdrop-filter: blur(2px);
+   background-color: #0057b333;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   margin-top: 4.8em;
+   display: flex;
+   justify-content: center;
+  }
+
+  .Form-closhe-Medicamento {
+    display: none;
+  }
+  
+  .Form-add-Medicamento > div {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+width: 100%;
+max-width: 25em;
+height: 20em;
+padding: 1em;
+display: flex;
+flex-direction: column;
+margin-top: 2em;
+  }
+
+  .Form-add-Medicamento > div > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .Form-add-Medicamento > div > h1 {
+    font-size: 1.5em;
+    color: #343a40;
+  }
+  
+  .Form-add-Medicamento i.bx {
+    font-size: 2em;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #dc3545;
+  }
+  
+  .Form-add-Medicamento form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+  }
+  
+  .Form-add-Medicamento form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .Form-add-Medicamento form label {
+    font-size: 1em;
+    color: #495057;
+    margin-bottom: 5px;
+  }
+  
+  .Form-add-Medicamento form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #495057;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .Form-add-Medicamento form input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: none;
+  }
+  
+  .Form-add-Medicamento form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .Form-add-Medicamento form button:hover {
+    background: #0056b3;
+  }

@@ -26,7 +26,21 @@ const useAplication = () => {
 		})
 	}
 
-	return {GetPacientes, Pacientes, CreatePaciente}
+	const AddCrud = (url, data, message, reset, onNewEnfermedad) => {
+		axios.post(url, data)
+		.then(res => {
+			alert(`${message}`)
+			reset()
+			if (onNewEnfermedad) {
+				onNewEnfermedad(res.data.Usuario);
+			}
+		})
+		.catch(err => {
+			alert("Error al hacer el registros")
+		})
+	}
+
+	return {GetPacientes, Pacientes, CreatePaciente, AddCrud}
 }
 
 export default useAplication

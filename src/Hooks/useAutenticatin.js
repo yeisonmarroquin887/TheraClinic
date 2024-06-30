@@ -9,7 +9,6 @@ const useAutentication = () => {
 		axios.post(`${Api}/terapeutas/login`, datos)
 		.then(res => {
 			localStorage.setItem("authToken", res.data.token)
-			console.log(res.data)
 			if(localStorage.getItem("authToken")){
 				navigate("/welcome")
 			}else {

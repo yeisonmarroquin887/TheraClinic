@@ -5,7 +5,6 @@ import useAplication from '../../../Hooks/useAplication'
 
 const AddPaciente = () => {
   const { handleSubmit, register, reset } = useForm()
-  const [alergias, setAlergias] = useState(false)
 
   const {CreatePaciente} = useAplication()
 
@@ -14,9 +13,6 @@ const AddPaciente = () => {
     data.ProblemasEquilibrio = data.ProblemasEquilibrio ? "Si" : "No"
     data.DolorCabeza = data.DolorCabeza ? "Si" : "No"
 
-    if (!alergias) {
-      data.Alergias = "No"
-    }
    CreatePaciente(data, reset)
   }
 
@@ -27,10 +23,6 @@ const AddPaciente = () => {
 
       <form onSubmit={handleSubmit(submit)} className='AddPaciente__form'>
       <ul className='AddPaciente__menu'>
-        <li>
-          <input type="checkbox" onChange={(e) => setAlergias(e.target.checked)} />
-          <label htmlFor="">Alergias</label>
-        </li>
         <li>
           <input {...register("Alcoholismo")} type="checkbox" />
           <label htmlFor="">Consumo de alcohol</label>
@@ -93,12 +85,7 @@ const AddPaciente = () => {
             <label htmlFor="">Fecha de ingreso</label>
             <input {...register("FechaIngreso")} type="date" required />
           </div>
-          {alergias && (
-            <div>
-              <label htmlFor="">Tipo de alergia</label>
-              <input {...register("Alergias")} type="text" />
-            </div>
-          )}
+
         </div>
         <button className='AddPaciente__Register'>Registrar</button>
       </form>
