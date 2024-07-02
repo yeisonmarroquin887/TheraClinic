@@ -3,7 +3,7 @@ import './Addpaciente.css'
 import { useForm } from 'react-hook-form'
 import useAplication from '../../../Hooks/useAplication'
 
-const AddPaciente = () => {
+const AddPaciente = ({option}) => {
   const { handleSubmit, register, reset } = useForm()
 
   const {CreatePaciente} = useAplication()
@@ -18,6 +18,7 @@ const AddPaciente = () => {
 
   return (
     <div className='AddPaciente'>
+      <button className='VolverPacientes' onClick={() => option(0)}>Volver</button>
       <h1>Nuevo Paciente</h1>
 
 

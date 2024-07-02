@@ -1,11 +1,16 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import useAplication from '../../Hooks/useAplication'
+const Api = import.meta.env.VITE_REACT_APP_URL;
 
-const AddMedicamento = () => {
-	const {register, handleSubmit,reset, onNewEnfermedad} = useForm()
-
+const AddMedicamento = ({pacienteId, onNew}) => {
+	const {register, handleSubmit,reset} = useForm()
+const { AddCrud } = useAplication()
 	const createMedicamento = (data) => {
-        console.log(data)
+		const api = `${Api}/medicamentos`
+		const message = "el medicamento ha sido asociado"
+		data.pacienteId = pacienteId;
+        AddCrud(api, data, message, reset, onNew)
     }
 	return (
 		<form action="" onSubmit={handleSubmit(createMedicamento)}>

@@ -86,11 +86,23 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     gap: 1em;
-    max-width: 23em;
+    max-width: 25em;
 }
 
 .PacienteId__Info-2 > div  > ul > li {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PacienteId__Info-2 > div  > ul > li > i { 
+  color: rgb(47, 0, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2em;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .PacienteId__Malestares {
@@ -735,4 +747,95 @@ margin-top: 2em;
   
   .Form-add-Medicamento form button:hover {
     background: #0056b3;
+  }
+
+  @media (max-width: 700px) {
+    .PacienteId__Info {
+      width: 100%;
+      padding-top: 9em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .Volver {
+    position: fixed;
+    width: 100%;
+    max-width: 7em;
+    top: 0;
+    margin-top: 6em;
+    border: none;
+    padding: .7em;
+    background-color: #1054D9 ;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .PacienteId__form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 61em;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 3em;
+      margin-bottom: 3em;
+  }
+  
+  .PacienteId__Title {
+      text-align: center;
+      margin-bottom: 1.2em;
+  }
+  
+  .PacienteId__form-info {
+      width: 100%;
+      max-width: 60em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+      gap: 2em;
+      margin-bottom: 3em;
+  }
+  
+  .PacienteId__form-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+  }
+  
+  .PacienteId__form-group > input {
+      padding: .5em;
+      border: none;
+      border-radius: .5em;
+      border: 1px solid rgb(175, 173, 173);
+  }
+  
+  .PacienteId__form-group > select {
+      padding: .5em;
+      border: none;
+      border-radius: .5em;
+      border: 1px solid rgb(175, 173, 173);
+  }
+  }
+
+  @media (max-width: 500px) {
+    .PacienteId__form-info {
+      width: 100%;
+      max-width: 60em;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-content: center;
+      gap: 2em;
+      margin-bottom: 3em;
+  }
+  .PacienteId__Malestares > div {
+    margin-top: .6em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5em;
+}
   }

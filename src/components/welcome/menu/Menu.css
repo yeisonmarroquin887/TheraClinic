@@ -52,7 +52,7 @@
 	gap: .1em;
 }
 
-.Menu__buttons > button {
+.Pacientes___Button {
 	border: none;
 	padding: 1em 2em 1em 2em;
 	font-size: .9em;
@@ -61,12 +61,53 @@
 	align-items: center;
 	justify-content: space-between;
 	background-color: transparent;
+	cursor: pointer;
+}
+
+.Pacientes___Button-active {
+	border: none;
+	padding: 1em 2em 1em 2em;
+	font-size: .9em;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: transparent;
+	cursor: pointer;
+	background-color: rgb(93, 93, 240);
+	color: white;
+}
+
+.Citas___Button {
+	border: none;
+	padding: 1em 2em 1em 2em;
+	font-size: .9em;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: transparent;
+	cursor: pointer;
+}
+.Citas___Button-active {
+	border: none;
+	padding: 1em 2em 1em 2em;
+	font-size: .9em;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: transparent;
+	cursor: pointer;
+	background-color: rgb(93, 93, 240);
+	color: white;
 }
 .Menu__buttons > button > i {
 	color: rgb(147, 147, 148);
 	font-size: .6em;
 	cursor: pointer;
 }
+
 
 .Menu__exit {
 	padding: .4em;
@@ -93,5 +134,5 @@
 		width: 100%;
 		display: none;
 	}
-	
+
 }

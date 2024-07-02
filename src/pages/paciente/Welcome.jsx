@@ -9,6 +9,9 @@ import Citas from '../../components/welcome/citas/Citas'
 
 const Welcome = () => {
   const navigate = useNavigate()
+const [Active, setActive] = useState(true)
+const [ActiveCita, setActiveCita] = useState(true)
+
   const cerrar = () => {
     localStorage.removeItem("authToken")
     navigate("/")
@@ -19,12 +22,18 @@ const Welcome = () => {
     switch (n) {
       case 0:
         setNum(0)
+        setActive(true)
+        setActiveCita(true)
         break;
       case 1:
         setNum(1)
+        setActive(true)
+        setActiveCita(true)
         break;
         case 2:
           setNum(2)
+          setActive(false)
+          setActiveCita(false)
           break
     
       default:
@@ -49,7 +58,7 @@ const Welcome = () => {
       <i onClick={AbrirMenu} className='bx bx-menu-alt-left' ></i>
       </div>
       <article className={MenuA ? "Welcome__Menu" : "Menu__clochet"}>
-        <Menu cerrar={setMenuA} option={option}/>
+        <Menu cerrar={setMenuA} option={option} Active={Active} ActiveCita={ActiveCita}/>
       </article>
       <article className='Welcome__Information'>
         {
@@ -57,7 +66,7 @@ const Welcome = () => {
             <Paciente option={option}/>
           ):
           Num === 1 ? (
-            <AddPaciente/>
+            <AddPaciente option={option}/>
           ) : Num === 2 ?(
             <Citas/>
           ):(

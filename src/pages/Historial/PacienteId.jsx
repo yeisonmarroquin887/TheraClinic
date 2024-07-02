@@ -49,9 +49,9 @@ const PacienteId = () => {
 
     useEffect(() => {
         axios.get(`${Api}/pacientes/${pacienteId}`)
-        .then(res => setPacienteOne(res.data))
-        .catch(err => console.log(err))
-    }, [pacienteId]) 
+            .then(res => setPacienteOne(res.data))
+            .catch(err => console.log(err))
+    }, [pacienteId])
 
 
     const paciente = PacienteOne
@@ -69,20 +69,20 @@ const PacienteId = () => {
     }, [paciente, setValue]);
 
     const onSubmit = (data) => {
-        console.log(data); 
+        console.log(data);
         axios.put(`${Api}/pacientes/${pacienteId}`, data)
-        .then((res) => {
-            alert("Paciente actualizado")
-            setEditMode(false); 
-        })
-        .catch(err => {
-            alert("Error al actualizar el paciente")
-            console.log(err)
-        })
+            .then((res) => {
+                alert("Paciente actualizado")
+                setEditMode(false);
+            })
+            .catch(err => {
+                alert("Error al actualizar el paciente")
+                console.log(err)
+            })
     };
 
     const handleEditClick = () => {
-        setEditMode(true); 
+        setEditMode(true);
     };
 
     const navigate = useNavigate()
@@ -101,23 +101,109 @@ const PacienteId = () => {
     const addNewAlergias = (newAlergias) => {
         setPacienteOne((prevPaciente) => ({
             ...prevPaciente,
-            enfermedads: [...prevPaciente.alergias, newAlergias]
+            alergias: [...prevPaciente.alergias, newAlergias]
         }));
     };
 
     const addNewmalestars = (newMalestars) => {
         setPacienteOne((prevPaciente) => ({
             ...prevPaciente,
-            enfermedads: [...prevPaciente.alergias, newMalestars]
+            malestars: [...prevPaciente.malestars, newMalestars]
         }));
     };
+
+    const addNewmedicamentos = (newMedicamento) => {
+        setPacienteOne((prevPaciente) => ({
+            ...prevPaciente,
+            medicamentos: [...prevPaciente.medicamentos, newMedicamento]
+        }));
+    };
+
+    const RemoveEnfermedad = (id) => {
+        const api = `${Api}/enfermedades/${id}`;
+        if (window.confirm("¿Estás seguro de que deseas eliminar esta enfermedad?")) {
+            axios.delete(api)
+                .then(response => {
+                    alert("Eliminada con éxito");
+                    setPacienteOne(prevPaciente => ({
+                        ...prevPaciente,
+                        enfermedads: prevPaciente.enfermedads.filter(enfermedad => enfermedad.id !== id)
+                    }));
+                })
+                .catch(error => {
+                    console.error("Error al eliminar:", error);
+                });
+        } else {
+            console.log("Eliminación cancelada por el usuario.");
+        }
+    }
+
+    const RemoveAlergia = (id) => {
+        const api = `${Api}/alergias/${id}`;
+        if (window.confirm("¿Estás seguro de que deseas eliminar esta alergia?")) {
+            axios.delete(api)
+                .then(response => {
+                    alert("Eliminada con éxito");
+                    setPacienteOne(prevPaciente => ({
+                        ...prevPaciente,
+                        alergias: prevPaciente.alergias.filter(alergia => alergia.id !== id)
+                    }));
+                })
+                .catch(error => {
+                    console.error("Error al eliminar:", error);
+                });
+        } else {
+            console.log("Eliminación cancelada por el usuario.");
+        }
+    }
+
+    const RemoveMalestar = (id) => {
+        const api = `${Api}/malestares/${id}`;
+        if (window.confirm("¿Estás seguro de que deseas eliminar este malestar?")) {
+            axios.delete(api)
+                .then(response => {
+                    alert("Eliminado con éxito");
+                    setPacienteOne(prevPaciente => ({
+                        ...prevPaciente,
+                        malestars: prevPaciente.malestars.filter(malestar => malestar.id !== id)
+                    }));
+                })
+                .catch(error => {
+                    console.error("Error al eliminar:", error);
+                });
+        } else {
+            console.log("Eliminación cancelada por el usuario.");
+        }
+    };
+
+    const RemoveMedicamento = (id) => {
+        const api = `${Api}/medicamentos/${id}`;
+        if (window.confirm("¿Estás seguro de que deseas eliminar este medicamento?")) {
+            axios.delete(api)
+                .then(response => {
+                    alert("Eliminado con éxito");
+                    setPacienteOne(prevPaciente => ({
+                        ...prevPaciente,
+                        medicamentos: prevPaciente.medicamentos.filter(medicamento => medicamento.id !== id)
+                    }));
+                })
+                .catch(error => {
+                    console.error("Error al eliminar:", error);
+                });
+        } else {
+            console.log("Eliminación cancelada por el usuario.");
+        }
+    };
+
+
+
 
 
 
     return (
         <div className='PacienteId'>
             <div className='PacienteId__Header'>
-                <Header/>
+                <Header />
             </div>
             <button onClick={volver} className='Volver'>Volver</button>
             <div className="PacienteId__Info">
@@ -200,68 +286,68 @@ const PacienteId = () => {
                             <h2>Informacion medica:</h2>
                             <div>
                                 <div className='Add'>
-                                <button onClick={abrirE}>Agregar Enfermedad</button>
-                                <button onClick={abrirAle}>Agregar alergias</button>
-                                <button onClick={abrirMale}>Agregar malestares</button>
-                                <button onClick={abrirMedi}>Agregar Medicamentos</button>
+                                    <button onClick={abrirE}>Agregar Enfermedad</button>
+                                    <button onClick={abrirAle}>Agregar alergias</button>
+                                    <button onClick={abrirMale}>Agregar malestares</button>
+                                    <button onClick={abrirMedi}>Agregar Medicamentos</button>
                                 </div>
-                                
+
                                 <div>
-                                 <div className='PacienteId__addEnfermedad'>
-                                <section className={AddEn ? "Form-add" : "Form-closhe"}>
-                                    <div>
-                                    <div>
-                                  <h1>Ingresa los datos</h1>
-                                  <i onClick={cerrarE} className='bx bx-x'></i>
-                                  </div>
-                                  <AddEnfermedad pacienteId={pacienteId} onNewEnfermedad={addNewEnfermedad}/>
+                                    <div className='PacienteId__addEnfermedad'>
+                                        <section className={AddEn ? "Form-add" : "Form-closhe"}>
+                                            <div>
+                                                <div>
+                                                    <h1>Ingresa los datos</h1>
+                                                    <i onClick={cerrarE} className='bx bx-x'></i>
+                                                </div>
+                                                <AddEnfermedad pacienteId={pacienteId} onNew={addNewEnfermedad} />
+                                            </div>
+                                        </section>
                                     </div>
-                                </section>
-                                </div>
                                 </div>
 
                                 <div className='PacienteId__addAlergia'>
-                                <section className={AddAle ? "Form-add-Alergia" : "Form-closhe-Alergia"}>
-                                    <div>
-                                    <div>
-                                  <h1>Ingresa los datos</h1>
-                
-                                  <i onClick={cerrarAle} className='bx bx-x'></i>
-                                  </div>
-                                  <AddAlergia pacienteId={pacienteId} onNewA={addNewAlergias}/>
-                                    </div>
-                                </section>
+                                    <section className={AddAle ? "Form-add-Alergia" : "Form-closhe-Alergia"}>
+                                        <div>
+                                            <div>
+                                                <h1>Ingresa los datos</h1>
+
+                                                <i onClick={cerrarAle} className='bx bx-x'></i>
+                                            </div>
+                                            <AddAlergia pacienteId={pacienteId} onNew={addNewAlergias} />
+                                        </div>
+                                    </section>
                                 </div>
 
 
                                 <div className='PacienteId__addMalestar'>
-                                <div>
-                                </div>
-                                <section className={AddMale ? "Form-add-Malestar" : "Form-closhe-Malestar"}>
                                     <div>
-                                    <div>
-                                  <h1>Ingresa los datos</h1>
-                
-                                  <i onClick={cerrarMale} className='bx bx-x'></i>
-                                  </div>
-                                  <AddMalestares pacienteId={pacienteId} onNewEnfermedad={addNewmalestars}/>          
                                     </div>
-                                </section>
+                                    <section className={AddMale ? "Form-add-Malestar" : "Form-closhe-Malestar"}>
+                                        <div>
+                                            <div>
+                                                <h1>Ingresa los datos</h1>
+
+                                                <i onClick={cerrarMale} className='bx bx-x'></i>
+                                            </div>
+                                            <AddMalestares pacienteId={pacienteId} onNew={addNewmalestars} />
+                                        </div>
+                                    </section>
                                 </div>
 
                                 <div className='PacienteId__addMedicamento'>
-                                <div>
-                                </div>
-                                <section className={AddMedi ? "Form-add-Medicamento" : "Form-closhe-Medicamento"}>
                                     <div>
-                                    <div>
-                                  <h1>Ingresa los datos</h1>
-                
-                                  <i onClick={cerrarMedi} className='bx bx-x'></i>
-                                  </div>
-                                  <AddMedicamento pacienteId={pacienteId} onNewEnfermedad={addNewEnfermedad}/>
                                     </div>
-                                </section>
+                                    <section className={AddMedi ? "Form-add-Medicamento" : "Form-closhe-Medicamento"}>
+                                        <div>
+                                            <div>
+                                                <h1>Ingresa los datos</h1>
+
+                                                <i onClick={cerrarMedi} className='bx bx-x'></i>
+                                            </div>
+                                            <AddMedicamento pacienteId={pacienteId} onNew={addNewmedicamentos} />
+                                        </div>
+                                    </section>
                                 </div>
 
                             </div>
@@ -272,27 +358,27 @@ const PacienteId = () => {
 
 
                             <div>
-                                    <b>Enfermedades: <hr /></b>
+                                <b>Enfermedades: <hr /></b>
                                 <ul>
                                     {
                                         paciente?.enfermedads?.map((enfermedad, index) => (
-                                            <li key={index}>🩸 {enfermedad.NombreEnfermedad} </li>
+                                            <li key={index}><span>🩸 {enfermedad.NombreEnfermedad}</span> <i onClick={() => RemoveEnfermedad(enfermedad.id)} className='bx bxs-trash'></i></li>
                                         ))
                                     }
                                 </ul>
                             </div>
                             <div>
-                             <b>Alergias: <hr /></b>
+                                <b>Alergias: <hr /></b>
                                 <ul>
                                     {
                                         paciente?.alergias?.map((alergia, index) => (
-                                            <li key={index}>😷 {alergia.NombreAlergia} </li>
+                                            <li key={index}><span>😷 {alergia.NombreAlergia}</span> <i onClick={() => RemoveAlergia(alergia.id)} className='bx bxs-trash'></i></li>
                                         ))
                                     }
                                 </ul>
                             </div>
                             <div className='PacienteId__Malestares'>
-                            <b>Malestares: <hr /></b>
+                                <b>Malestares: <hr /></b>
                                 <div>
                                     {
                                         paciente?.malestars?.map((malestar, index) => (
@@ -302,8 +388,7 @@ const PacienteId = () => {
                                                 <li><span>Zona:</span> {malestar.Zona} </li>
                                                 <li><span>Desde:</span> {malestar.Desde} </li>
                                                 <div>
-                                                    <button>Editar</button>
-                                                    <button>Eliminar</button>
+                                                    <button onClick={() => RemoveMalestar(malestar.id)}>Eliminar</button>
                                                 </div>
                                             </ul>
                                         ))
@@ -320,8 +405,7 @@ const PacienteId = () => {
                                                 <h4> {medicamento.NombreMedicamento} </h4>
                                                 <li><span>Descripción:</span> {medicamento.Descripcion} </li>
                                                 <div>
-                                                    <button>Editar</button>
-                                                    <button>Eliminar</button>
+                                                    <button onClick={() => RemoveMedicamento(medicamento.id)}>Eliminar</button>
                                                 </div>
                                             </ul>
                                         ))
@@ -339,7 +423,6 @@ const PacienteId = () => {
                                                 <li><span>Fecha:</span> {citas.Fecha} </li>
                                                 <li><span>Hora:</span> {citas.Hora} </li>
                                                 <div>
-                                                    <button>Editar</button>
                                                     <button>Eliminar</button>
                                                 </div>
                                             </ul>

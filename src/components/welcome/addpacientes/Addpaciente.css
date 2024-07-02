@@ -67,6 +67,21 @@
 	cursor: pointer;
 	
 }
+
+.VolverPacientes{
+	position: fixed;
+    width: 100%;
+    max-width: 7em;
+    top: 0;
+    margin-top: 6em;
+    border: none;
+    padding: .7em;
+    background-color: #1054D9 ;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+	right: 0;
+}
 @media (min-width: 910px) {
 	
 	.AddPaciente__menu {

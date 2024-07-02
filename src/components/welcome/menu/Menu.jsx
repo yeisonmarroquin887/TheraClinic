@@ -1,7 +1,7 @@
 import React from 'react'
 import './Menu.css'
 
-const Menu = ({option, cerrar}) => {
+const Menu = ({option, cerrar, Active, ActiveCita}) => {
 
 	const closhet = () => {
 		cerrar(false)
@@ -26,8 +26,8 @@ const Menu = ({option, cerrar}) => {
 			<i className='bx bxs-down-arrow'></i>
 		</header>
 		<div className='Menu__buttons'>
-			<button ><span>🧍🏽‍♂️Pacientes </span><i onClick={() => option(0)}className='bx bxs-down-arrow'></i></button>
-			<button ><span><i className='bx bxs-layer'></i> Citas</span> <i  onClick={() => option(2)}className='bx bxs-down-arrow'></i></button>
+			<button className={Active ? 'Pacientes___Button-active' : 'Pacientes___Button'} onClick={() => option(0)} ><span>🧍🏽‍♂️Pacientes </span><i className='bx bxs-down-arrow'></i></button>
+			<button  className={ActiveCita ?'Citas___Button' : 'Citas___Button-active'} onClick={() => option(2)} ><span><i className='bx bxs-layer'></i> Citas</span><i className='bx bxs-down-arrow'></i></button>
 		</div>
 	</section>
   )

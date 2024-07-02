@@ -26,17 +26,20 @@ const useAplication = () => {
 		})
 	}
 
-	const AddCrud = (url, data, message, reset, onNewEnfermedad) => {
+	const AddCrud = (url, data, message, reset, onNew) => {
 		axios.post(url, data)
 		.then(res => {
 			alert(`${message}`)
 			reset()
-			if (onNewEnfermedad) {
-				onNewEnfermedad(res.data.Usuario);
+			if (onNew) {
+				onNew(res.data.Usuario);
+				console.log(res.data.Usuario)
 			}
+			
 		})
 		.catch(err => {
 			alert("Error al hacer el registros")
+			console.log(err)
 		})
 	}
 
